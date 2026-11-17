@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,14 +6,14 @@
 }
 
 :root {
-    --bg: #000;
-    --card: #171717;
-    --display: #050505;
-    --number: #333333;
-    --function: #a5a5a5;
-    --operator: #ff9f0a;
-    --text: #fff;
-    --muted: #8e8e93;
+    --bg: #071426;
+    --card: #10243d;
+    --display: #08182b;
+    --number: #1d3b5c;
+    --function: #6da9df;
+    --operator: #168cff;
+    --text: #ffffff;
+    --muted: #91abc7;
 }
 
 body {
@@ -22,19 +23,19 @@ body {
     align-items: center;
     padding: 24px;
     background:
-        radial-gradient(circle at top, #242424 0, #090909 42%, #000 75%);
+        radial-gradient(circle at top, #164779 0, #0a203a 42%, #050d19 85%);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-        "Segoe UI", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .calculadora {
     width: min(100%, 420px);
-    background: rgba(23, 23, 23, .96);
-    border: 1px solid #292929;
+    background: rgba(16, 36, 61, .97);
+    border: 1px solid #24517b;
     border-radius: 30px;
     padding: 22px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, .55);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .5),
+                0 0 25px rgba(22, 140, 255, .12);
 }
 
 .topo {
@@ -57,10 +58,10 @@ h1 {
 }
 
 .btn-modo {
-    border: 0;
+    border: 1px solid #3675ad;
     border-radius: 14px;
     padding: 10px 12px;
-    background: #262626;
+    background: #1b3c60;
     color: #fff;
     font-size: 12px;
     font-weight: 600;
@@ -69,7 +70,7 @@ h1 {
 }
 
 .btn-modo:hover {
-    background: #353535;
+    background: #285b8c;
     transform: translateY(-1px);
 }
 
@@ -83,6 +84,7 @@ h1 {
     margin-bottom: 12px;
     border-radius: 20px;
     background: var(--display);
+    border: 1px solid #183c60;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -92,7 +94,7 @@ h1 {
 
 .expressao {
     min-height: 22px;
-    color: #8e8e93;
+    color: var(--muted);
     font-size: 15px;
     overflow-wrap: anywhere;
 }
@@ -105,6 +107,7 @@ h1 {
     letter-spacing: -2px;
     overflow-x: auto;
     scrollbar-width: none;
+    color: #e5f3ff;
 }
 
 .display::-webkit-scrollbar {
@@ -115,12 +118,13 @@ h1 {
     margin-bottom: 12px;
     padding: 12px;
     border-radius: 20px;
-    background: #202020;
+    background: #153454;
+    border: 1px solid #285783;
     animation: aparecer .18s ease;
 }
 
 .titulo-painel {
-    color: var(--muted);
+    color: #9fc8ed;
     font-size: 12px;
     font-weight: 600;
     margin: 0 4px 9px;
@@ -134,16 +138,17 @@ h1 {
 
 .grade-cientifica button {
     min-height: 42px;
-    border: 0;
+    border: 1px solid #32618d;
     border-radius: 12px;
-    background: #3a3a3c;
+    background: #245078;
     color: #fff;
     font-size: 14px;
     cursor: pointer;
+    transition: .2s ease;
 }
 
 .grade-cientifica button:hover {
-    background: #505052;
+    background: #367cb6;
 }
 
 .teclado {
@@ -155,7 +160,7 @@ h1 {
 .teclado button {
     min-width: 0;
     aspect-ratio: 1 / 1;
-    border: 0;
+    border: 1px solid #294c6e;
     border-radius: 50%;
     background: var(--number);
     color: var(--text);
@@ -166,7 +171,8 @@ h1 {
 }
 
 .teclado button:hover {
-    filter: brightness(1.15);
+    filter: brightness(1.3);
+    box-shadow: 0 0 12px rgba(22, 140, 255, .2);
 }
 
 .teclado button:active,
@@ -176,18 +182,21 @@ h1 {
 
 .teclado .funcao {
     background: var(--function);
-    color: #000;
+    border-color: #8bc5f5;
+    color: #071426;
 }
 
 .teclado .operador,
 .teclado .igual {
     background: var(--operator);
+    border-color: #58b2ff;
     color: #fff;
+    box-shadow: 0 3px 12px rgba(22, 140, 255, .2);
 }
 
 .teclado .operador.selecionado {
-    background: #fff;
-    color: var(--operator);
+    background: #ffffff;
+    color: #168cff;
 }
 
 .teclado .zero {
@@ -207,8 +216,14 @@ h1 {
 }
 
 @keyframes aparecer {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 420px) {
@@ -237,4 +252,3 @@ h1 {
         font-size: 22px;
     }
 }
-
